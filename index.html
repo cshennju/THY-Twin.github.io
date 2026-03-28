@@ -159,17 +159,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            <strong>Background:</strong> Thyroid nodules are prevalent, and ultrasound-guided thermal ablation is an increasingly preferred minimally invasive treatment. However, effective ablation requires precise preoperative planning, accurate intraoperative needle navigation, and reliable postoperative assessment—tasks that remain challenging due to the lack of integrated three-dimensional (3D) visualization and quantitative evaluation tools.
-          </p>
-          <p>
-            <strong>Aim:</strong> We introduce THY-Twin, a digital twin framework designed to provide comprehensive navigation and auditing capabilities for ultrasound-guided thyroid ablation. THY-Twin integrates patient-specific 3D thyroid modeling, real-time intraoperative needle tracking, and postoperative ablation assessment within a unified platform.
-          </p>
-          <p>
-            <strong>Methods:</strong> THY-Twin comprises three interconnected components: (1) a Preoperative Static Twin that reconstructs patient-specific 3D thyroid models from brief 2D ultrasound sweeps for individualized surgical planning; (2) an Intraoperative Shadow Twin that continuously aligns real-time 2D ultrasound frames with the preoperative 3D model to maintain spatial correspondence during needle guidance; and (3) a Postoperative Treatment Twin that reconstructs and co-registers post-ablation ultrasound data with the preoperative model to quantify ablation coverage and treatment completeness.
-          </p>
-            <strong>Results:</strong> THY-Twin enables comprehensive 3D visualization and quantitative assessment throughout the ablation workflow, facilitating precise preoperative planning, accurate intraoperative navigation, and objective postoperative evaluation of treatment adequacy.
-          <p>
-            <strong>Conclusions:</strong> By integrating neural reconstruction, real-time registration, and volumetric analysis, THY-Twin provides a complete digital twin solution for ultrasound-guided thyroid ablation, enhancing both the precision and safety of the procedure.
+            Thyroid thermal ablation is increasingly used as a minimally invasive alternative to surgery, yet routine clinical practice still depends on conventional two-dimensional (2D) ultrasound and operator experience, limiting objective margin control and function-preserving decisions. Leveraging advances in digital health, we develop THY-Twin, a patient-specific digital-twin framework for self-supervised artificial intelligence (AI)-guided ablation. THY-Twin provides continuous, quantitative, and auditable three-dimensional (3D) guidance across preoperative planning, intraoperative navigation, and postoperative assessment directly from standard 2D ultrasound. In a multicenter real-world cohort, THY-Twin-assisted workflows outperform standard-of-care clinical workflows, reducing preoperative planning time by more than 50%, shortening intraoperative time-to-target by about 50%, and significantly improving ablation coverage accuracy. The framework also computes a novel volumetric metric, the expansion ratio, offering a reproducible, geometry-aware measure of treatment adequacy unavailable in conventional assessment. By transforming fragmented 2D cues into intuitive 3D navigation and auditable spatial feedback, THY-Twin helps reduce cognitive burden, improve cross-center consistency, and support safer routine decisions. Its lightweight, hardware-free design enables scalable deployment, even in resource-limited settings.
           </p>
         </div>
       </div>
