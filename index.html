@@ -12,10 +12,10 @@
 </script>
   <meta charset="utf-8">
   <meta name="description"
-        content="THY-Twin: A Digital Navigation and Auditing Twin for Ultrasound-Guided Thyroid Ablation">
-  <meta name="keywords" content="THY-Twin, Ultrasound, Thyroid Ablation, Digital Twin, Navigation, Auditing">
+        content="UltraNavTwin: Transforming routine 2D ultrasound into patient-specific digital twins for image-guided interventions">
+  <meta name="keywords" content="UltraNavTwin, Ultrasound, Image-Guided Interventions, Thyroid Ablation, Digital Twin, Navigation, Auditing">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>THY-Twin: A Digital Navigation and Auditing Twin for Ultrasound-Guided Thyroid Ablation</title>
+  <title>UltraNavTwin: Transforming routine 2D ultrasound into patient-specific digital twins for image-guided interventions</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -88,7 +88,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">THY-Twin: A Digital Navigation and Auditing Twin for Ultrasound-Guided Thyroid Ablation</h1>
+          <h1 class="title is-1 publication-title">UltraNavTwin: Transforming routine 2D ultrasound into patient-specific digital twins for image-guided interventions</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a href="https://vision.nju.edu.cn/2c/f1/c29471a535793/page.htm">Chengkang Shen</a><sup>1</sup>,</span>
@@ -159,22 +159,38 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Image-guided thermal ablation is increasingly used to treat solid-organ and superficial-tissue lesions, yet ultrasound guidance still relies on fragmented two-dimensional views and operator-dependent spatial interpretation. We developed THY-Twin, a patient-specific digital-twin framework for ultrasound-guided ablation, with thyroid tumor ablation as a representative application. THY-Twin maintains a unified three-dimensional reference across planning, navigation, and postprocedural assessment through three modules: a Static Twin for reconstruction and planning, a Shadow Twin for near-real-time registration and needle localization, and a Treatment Twin for voxel-wise evaluation of ablation coverage and margins. This software-only adjunct operates alongside native ultrasound without external tracking hardware. Across public benchmarks, multicenter cohorts, and clinical deployment, THY-Twin reduced planning time by 49.5% and reader-assessed time-to-target by 52.6%. Voxel-wise auditing estimated 34.9% greater planned-target coverage than conventional two-dimensional ellipsoid assessment. These results establish a clinically deployable and auditable digital-twin paradigm for ultrasound-guided ablation.
+            Routine two-dimensional (2D) ultrasound provides real-time imaging during minimally invasive interventions but offers only fragmented cross-sectional views of three-dimensional (3D) anatomy.
+            Clinicians must therefore mentally integrate these observations to interpret anatomical relationships and guide instrument placement, while the absence of a persistent spatial reference makes it difficult to relate treatment plans to intraoperative observations and achieved treatment extent.
+            Here, we introduce Ultrasound Navigation Digital Twin (UltraNavTwin), a neural reconstruction and registration framework that establishes patient-specific spatial digital twins from routine 2D ultrasound, connecting preprocedural planning, intraoperative navigation, and postprocedural treatment assessment.
+            We evaluated this framework for thyroid thermal ablation on a clinical deployment system operating alongside native B-mode ultrasound, and further demonstrated its performance using public 3D ultrasound benchmarks, prospective examinations, and retrospective cases from two clinical centers.
+            In the compared workflows, 3D-assisted planning was associated with a 49.5% shorter recorded planning time, while reader-based procedural replay yielded a 52.6% shorter time to identify a decision-ready target view.
+            Voxel-wise auditing yielded a 34.9% higher estimate of planned-target coverage than the simulated 2D ellipsoid-based assessment.
+            Together, these findings demonstrate the feasibility of establishing patient-specific digital twins from routine 2D ultrasound for image-guided interventions, with the potential to extend this framework to other organs and clinical applications.
           </p>
         </div>
       </div>
     </div>
     <!--/ Abstract. -->
 
-    <!-- Paper video. -->
+    <!-- Overview figure. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Overview of THY-Twin</h2>
-        <img src="./static/images/Figures1.png" alt="Digital Twin Navigation and Auditing System" width="100%">
-        <figcaption style="text-align: justify;"> Digital Twin Navigation and Auditing System. (a) Preoperative Static Twin: a short preoperative ultrasound sweep is used to reconstruct a patient-specific 3D thyroid model for individualized planning. (b) Intraoperative Shadow Twin: real-time 2D ultrasound frames are continuously aligned with the preoperative 3D twin to maintain spatial correspondence during needle guidance. (c) Postoperative Treatment Twin: post-ablation ultrasound data are reconstructed and co-registered with the preoperative model to quantify ablation coverage and treatment completeness. (d) Preoperative planning: the reconstructed 3D thyroid volume is first generated from a brief 2D sector sweep. Following this, the target ablation zone is defined and critical risk structures (such as carotid artery, recurrent laryngeal nerve and trachea) are annotated, culminating in needle path planning. (e) Postoperative ablation assessment: THY-Twin computes treatment coverage and introduces a new volumetric metric, the expansion ratio enabling objective evaluation of ablation adequacy and post-treatment geometric expansion. NeurRecField: Neural Reconstruction Field, NeurRegField: Neural Registration Field.</figcaption>
+        <h2 class="title is-3">Overview of UltraNavTwin</h2>
+        <figure>
+          <img src="./static/images/Figures1.png" alt="UltraNavTwin workflow for planning, navigation, and treatment assessment" width="100%">
+          <figcaption style="text-align: justify;">
+            <strong>UltraNavTwin: Neural reconstruction–driven spatial digital-twin framework.</strong>
+            (a) Static Twin: A brief freehand 2D ultrasound sweep is reconstructed into a continuous patient-specific 3D representation using scan-trajectory-prior-guided neural reconstruction.
+            (b) Shadow Twin: The reconstructed neural field provides spatial supervision for frame-to-volume registration, enabling real-time localization of incoming ultrasound frames and visible needle structures within the preprocedural 3D reference.
+            (c) Treatment Twin: A post-ablation ultrasound sweep is independently reconstructed using the same acquisition protocol and pose estimation model, enabling spatial comparison with the preprocedural reference.
+            (d) Preprocedural planning: The Static Twin supports target delineation, risk-region annotation, and needle trajectory planning within a unified 3D anatomical context.
+            (e) Postprocedural auditing: The Treatment Twin enables voxel-wise comparison of planned targets and observed treatment regions, including planned-target coverage and volumetric expansion.
+            (NeurRecField, Neural Reconstruction Field; NeurRegField, Neural Registration Field.)
+          </figcaption>
+        </figure>
       </div>
     </div>
-    <!--/ Paper video. -->
+    <!--/ Overview figure. -->
   </div>
 </section>
 
@@ -229,7 +245,7 @@
     <h2 class="title">BibTeX</h2>
     <pre><code>@article{shen2026thy-twin,
   author = {Shen, Chengkang and Zhou, You and Zhu, Hao and Wang, Longqiang and Zhang, XueJing and Cao, Xun and Jiang, Ming and Jin, Yunjie and Lin, Yi and Ma, Zhan},
-  title = {THY-Twin: A Digital Navigation and Auditing Twin for Ultrasound-Guided Thyroid Ablation},
+  title = {{UltraNavTwin}: Transforming routine {2D} ultrasound into patient-specific digital twins for image-guided interventions},
   journal = {},
   year = {2026},
 }</code></pre>
